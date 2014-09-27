@@ -1,0 +1,16 @@
+language: python
+notifications:
+  email: false
+python:
+  - "2.6"
+  - "2.7"
+  - "3.2"
+  - "3.3"
+install:
+  - "easy_install -U setuptools"
+  - "pip install ."
+  - "pip install -r test_requirements.txt"
+script:
+  - py.test test/test_grapple.py --doctest-modules -v --cov weightedstats --cov-report term-missing
+after_success:
+  - coveralls
