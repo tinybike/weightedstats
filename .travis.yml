@@ -11,6 +11,6 @@ install:
   - "pip install ."
   - "pip install -r test_requirements.txt"
 script:
-  - py.test test/test_weightedstats.py --doctest-modules -v --cov weightedstats --cov-report term-missing
+  - py.test test --doctest-modules -v --cov weightedstats --cov-report term-missing
 after_success:
   - coveralls

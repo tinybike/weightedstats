@@ -1,15 +1,36 @@
 #!/usr/bin/env python
 # -*- coding: utf-8 -*-
-"""Weighted statistics.
+"""Mean, weighted mean, median, and weighted median.
 
-A small Python module with functions to calculate mean, weighted mean,
-median, and weighted median.
+WeightedStats includes four functions (mean, weighted_mean, median,
+weighted_median) which accept lists as arguments, and two functions
+(numpy_weighted_mean, numpy weighted_median) which accept either lists
+or numpy arrays.
+
+Example:
+
+    import weightedstats as ws
+
+    my_data = [1, 2, 3, 4, 5]
+    my_weights = [10, 1, 1, 1, 9]
+
+    # Ordinary (unweighted) mean and median
+    ws.mean(my_data)    # equivalent to ws.weighted_mean(my_data)
+    ws.median(my_data)  # equivalent to ws.weighted_median(my_data)
+    
+    # Weighted mean and median
+    ws.weighted_mean(my_data, weights=my_weights)
+    ws.weighted_median(my_data, weights=my_weights)
+
+    # Special weighted mean and median functions for use with numpy arrays
+    ws.numpy_weighted_mean(my_data, weights=my_weights)
+    ws.numpy_weighted_median(my_data, weights=my_weights)
 
 """
 from __future__ import division
 
 __title__      = "WeightedStats"
-__version__    = "0.1"
+__version__    = "0.2"
 __author__     = "Jack Peterson"
 __email__      = "jack@tinybike.net"
 __license__    = "MIT"
