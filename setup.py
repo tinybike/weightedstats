@@ -6,15 +6,15 @@ except ImportError:
 
 setup(
     name="weightedstats",
-    version="0.1",
-    description="Weighted mean, median, and weighted median",
+    version="0.2",
+    description="Mean, weighted mean, median, weighted median",
     author="Jack Peterson",
     author_email="<jack@tinybike.net>",
     maintainer="Jack Peterson",
     maintainer_email="<jack@tinybike.net>",
     license="MIT",
     url="https://github.com/tensorjack/weightedstats",
-    download_url = "https://github.com/tensorjack/weightedstats/tarball/0.1",
+    download_url = "https://github.com/tensorjack/weightedstats/tarball/0.2",
     packages=["weightedstats"],
-    keywords = ["weights", "statistics"]
+    keywords = ["weights", "mean", "median", "numpy", "statistics"]
 )
