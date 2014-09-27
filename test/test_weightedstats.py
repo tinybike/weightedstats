@@ -63,6 +63,24 @@ class TestWeightedStats(unittest.TestCase):
                              3.453333, 91.782816, 2.000000,
                              2.300000, -4.625000, 3.666667]
 
+    def test_mean(self):
+        datum = [7, 1, 1, 1, 6]
+        self.assertTrue(weighted_mean(datum) == mean(datum) == 3.2)
+
+    def test_weighted_mean(self):
+        for datum, weight, answer in zip(self.data, self.weights, self.mean_answers):
+            self.assertTrue(abs(weighted_mean(datum, weights=weight) - answer) <= 1e-6)
+
+    def test_numpy_weighted_mean(self):
+        for datum, weight, answer in zip(self.data, self.weights, self.mean_answers):
+            self.assertTrue(abs(numpy_weighted_mean(datum, weights=weight) - answer) <= 1e-6)
+
+    def test_median(self):
+        datum = [4, 3, 2, 1]
+        self.assertTrue(weighted_median(datum) == numpy_weighted_median(datum) == median(datum) == 2.5)
+        datum = [7, 1, 1, 1, 6]
+        self.assertTrue(weighted_median(datum) == numpy_weighted_median(datum) == median(datum) == 1.0)
+
     def test_weighted_median(self):
         for datum, weight, answer in zip(self.data, self.weights, self.median_answers):
             self.assertTrue(weighted_median(datum, weights=weight) == answer)
@@ -72,13 +90,6 @@ class TestWeightedStats(unittest.TestCase):
         for datum, weight, answer in zip(self.data, self.weights, self.median_answers):
             self.assertTrue(numpy_weighted_median(datum, weights=weight) == answer)
         self.assertTrue(numpy_weighted_median([4, 3, 2, 1], weights=[0, 0, 0, 0]) is None)
-
-    def test_weighted_mean(self):
-        for datum, weight, answer in zip(self.data, self.weights, self.mean_answers):
-            self.assertTrue(abs(weighted_mean(datum, weights=weight) - answer) <= 1e-6)
-
-    def test_median(self):
-        self.assertTrue(weighted_median([4, 3, 2, 1]) == median([4, 3, 2, 1]) == 2.5)
 
 
 if __name__ == "__main__":

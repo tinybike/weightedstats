@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """Weighted statistics.
 
-A small Python module with functions to calculate weighted mean,
+A small Python module with functions to calculate mean, weighted mean,
 median, and weighted median.
 
 """
@@ -14,8 +14,23 @@ __author__     = "Jack Peterson"
 __email__      = "jack@tinybike.net"
 __license__    = "MIT"
 
+def mean(data):
+    """Calculate the mean of a list."""
+    return sum(data) / float(len(data))
+
 def weighted_mean(data, weights=None):
     """Calculate the weighted mean of a list."""
+    if weights is None:
+        return mean(data)
+    total_weight = float(sum(weights))
+    weights = [weight / total_weight for weight in weights]
+    w_mean = 0
+    for i, weight in enumerate(weights):
+        w_mean += weight * data[i]
+    return w_mean
+
+def numpy_weighted_mean(data, weights=None):
+    """Calculate the weighted mean of an array/list using numpy."""
     import numpy as np
     weights = np.array(weights).flatten() / float(sum(weights))
     return np.dot(np.array(data), weights)
