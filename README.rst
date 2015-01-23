@@ -1,16 +1,16 @@
 WeightedStats
 =============
 
-.. image:: https://travis-ci.org/tensorjack/weightedstats.svg?branch=master
-    :target: https://travis-ci.org/tensorjack/weightedstats
+.. image:: https://travis-ci.org/tinybike/weightedstats.svg?branch=master
+    :target: https://travis-ci.org/tinybike/weightedstats
 
-.. image:: https://coveralls.io/repos/tensorjack/weightedstats/badge.png
-  :target: https://coveralls.io/r/tensorjack/weightedstats
+.. image:: https://coveralls.io/repos/tinybike/weightedstats/badge.png
+  :target: https://coveralls.io/r/tinybike/weightedstats
 
 .. image:: https://badge.fury.io/py/weightedstats.svg
     :target: http://badge.fury.io/py/weightedstats
 
-A small Python module with functions to calculate the mean, weighted mean, median, and weighted median.
+Python functions to calculate the mean, weighted mean, median, and weighted median.
 
 Installation
 ^^^^^^^^^^^^
