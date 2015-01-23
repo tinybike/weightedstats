@@ -83,12 +83,12 @@ class TestWeightedStats(unittest.TestCase):
 
     def test_weighted_median(self):
         for datum, weight, answer in zip(self.data, self.weights, self.median_answers):
-            self.assertTrue(weighted_median(datum, weights=weight) == answer)
+            self.assertTrue(weighted_median(datum, weights=weight) - answer <= 1e-16)
         self.assertTrue(weighted_median([4, 3, 2, 1], weights=[0, 0, 0, 0]) is None)
 
     def test_numpy_weighted_median(self):
         for datum, weight, answer in zip(self.data, self.weights, self.median_answers):
-            self.assertTrue(numpy_weighted_median(datum, weights=weight) == answer)
+            self.assertTrue(numpy_weighted_median(datum, weights=weight) - answer <= 1e-16)
         self.assertTrue(numpy_weighted_median([4, 3, 2, 1], weights=[0, 0, 0, 0]) is None)
 
 

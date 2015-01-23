@@ -28,9 +28,10 @@ Example:
 
 """
 from __future__ import division
+import sys
 
 __title__      = "WeightedStats"
-__version__    = "0.2"
+__version__    = "0.3"
 __author__     = "Jack Peterson"
 __email__      = "jack@tinybike.net"
 __license__    = "MIT"
@@ -80,7 +81,7 @@ def weighted_median(data, weights=None):
             below_midpoint_index += 1
             cumulative_weight += sorted_weights[below_midpoint_index-1]
         cumulative_weight -= sorted_weights[below_midpoint_index-1]
-        if cumulative_weight == midpoint:
+        if cumulative_weight - midpoint < sys.float_info.epsilon:
             bounds = sorted_data[below_midpoint_index-2:below_midpoint_index]
             return sum(bounds) / float(len(bounds))
         return sorted_data[below_midpoint_index-1]
@@ -98,6 +99,6 @@ def numpy_weighted_median(data, weights=None):
             return (data[weights == np.max(weights)])[0]
         cumulative_weight = np.cumsum(sorted_weights)
         below_midpoint_index = np.where(cumulative_weight <= midpoint)[0][-1]
-        if cumulative_weight[below_midpoint_index] == midpoint:
+        if cumulative_weight[below_midpoint_index] - midpoint < sys.float_info.epsilon:
             return np.mean(sorted_data[below_midpoint_index:below_midpoint_index+2])
         return sorted_data[below_midpoint_index+1]
