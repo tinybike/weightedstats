@@ -23,7 +23,9 @@ Usage
 
 WeightedStats includes four functions (mean, weighted_mean, median, weighted_median) which accept lists as arguments, and two functions (numpy_weighted_mean, numpy weighted_median) which accept either lists or numpy arrays.
 
-Example::
+Example:
+
+.. code-block:: python
 
     import weightedstats as ws
 
