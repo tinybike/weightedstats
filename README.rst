@@ -4,7 +4,7 @@ WeightedStats
 .. image:: https://travis-ci.org/tinybike/weightedstats.svg?branch=master
     :target: https://travis-ci.org/tinybike/weightedstats
 
-.. image:: https://coveralls.io/repos/tinybike/weightedstats/badge.svg?branch=master :target: https://coveralls.io/r/tinybike/weightedstats?branch=master
+.. image:: https://coveralls.io/repos/github/tinybike/weightedstats/badge.svg?branch=master :target: https://coveralls.io/github/tinybike/weightedstats?branch=master
 
 .. image:: https://badge.fury.io/py/weightedstats.svg
     :target: http://badge.fury.io/py/weightedstats

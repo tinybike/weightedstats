@@ -6,7 +6,7 @@ except ImportError:
 
 setup(
     name="weightedstats",
-    version="0.3",
+    version="0.4",
     description="Mean, weighted mean, median, weighted median",
     author="Jack Peterson",
     author_email="<jack@tinybike.net>",
@@ -14,7 +14,7 @@ setup(
     maintainer_email="<jack@tinybike.net>",
     license="MIT",
     url="https://github.com/tinybike/weightedstats",
-    download_url = "https://github.com/tinybike/weightedstats/tarball/0.3",
+    download_url = "https://github.com/tinybike/weightedstats/tarball/0.4",
     packages=["weightedstats"],
     keywords = ["weights", "mean", "median", "numpy", "statistics"]
 )

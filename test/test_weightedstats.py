@@ -34,6 +34,14 @@ class TestWeightedStats(unittest.TestCase):
             [2.3],
             [-2, -3, 1, 2, -10],
             [1, 2, 3, 4, 5],
+            [1, 2, 3, 4, 5],
+            [1, 2, 3, 4, 5],
+            [5, 4, 3, 2, 1],
+            [-2, 2, -1, 3, 6],
+            [-10, 1, 1, -10, -10],
+            [2, 4],
+            [2, 2, 4, 4],
+            [2, 2, 2, 4],
         ]
         self.weights = [
             [1, 1/3, 1/3, 1/3, 1],
@@ -51,17 +59,31 @@ class TestWeightedStats(unittest.TestCase):
             [12],
             [7, 1, 1, 1, 6],
             [1, 0, 0, 0, 2],
+            [10, 1, 1, 1, 9],
+            [10, 1, 1, 1, 10],
+            [1, 2, -3, 4, -5],
+            [0.1, 0.2, 0.3, -0.2, 0.1],
+            [-1, -1, -1, -1, 1],
+            [1, 1],
+            [1, 1, 1, 1],
+            [1, 1, 1, 1],
         ]
         self.median_answers = [7.0,   4.0,  8.5,
                                8.5,  10.0,  2.5,
                                5.0,  50.0,  1.7,
                                3.5, 100.0,  2.0,
-                               2.3,  -2.0,  5.0]
-        self.mean_answers = [6.444444,  4.800000, 8.583333,
-                             8.583333,  9.086956, 2.909091,
-                             4.949617, 47.333333, 1.275000,
-                             3.453333, 91.782816, 2.000000,
-                             2.300000, -4.625000, 3.666667]
+                               2.3,  -2.0,  5.0,
+                               2.5,   3.0,  2.0,
+                              -1.0, -10.0,  3.0,
+                               3.0,   2.0]
+        self.mean_answers = [6.444444,  4.800000,  8.583333,
+                             8.583333,  9.086956,  2.909091,
+                             4.949617, 47.333333,  1.275000,
+                             3.453333, 91.782816,  2.000000,
+                             2.300000, -4.625000,  3.666667,
+                             2.909091,  3.000000, -7.000000,
+                            -0.200000, -2.666667,  3.000000,
+                             3.000000,  2.500000]
 
     def test_mean(self):
         datum = [7, 1, 1, 1, 6]
@@ -83,12 +105,12 @@ class TestWeightedStats(unittest.TestCase):
 
     def test_weighted_median(self):
         for datum, weight, answer in zip(self.data, self.weights, self.median_answers):
-            self.assertTrue(weighted_median(datum, weights=weight) - answer <= 1e-16)
+            self.assertTrue(abs(weighted_median(datum, weights=weight) - answer) <= 1e-16)
         self.assertTrue(weighted_median([4, 3, 2, 1], weights=[0, 0, 0, 0]) is None)
 
     def test_numpy_weighted_median(self):
         for datum, weight, answer in zip(self.data, self.weights, self.median_answers):
-            self.assertTrue(numpy_weighted_median(datum, weights=weight) - answer <= 1e-16)
+            self.assertTrue(abs(numpy_weighted_median(datum, weights=weight) - answer) <= 1e-16)
         self.assertTrue(numpy_weighted_median([4, 3, 2, 1], weights=[0, 0, 0, 0]) is None)
 
 
