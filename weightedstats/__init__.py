@@ -31,7 +31,7 @@ from __future__ import division
 import sys
 
 __title__      = "WeightedStats"
-__version__    = "0.4"
+__version__    = "0.4.1"
 __author__     = "Jack Peterson"
 __email__      = "jack@tinybike.net"
 __license__    = "MIT"
